@@ -8,10 +8,9 @@ const port = 3000;
 
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/bazz-task', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect('mongodb://localhost/baaz', {useNewUrlParser: true});
+const db = mongoose.connection;
+db.on('open',function(){})
 
 const registerRoute = require('./routes/registerUser');
 const loginRoute = require('./routes/userLogin');
