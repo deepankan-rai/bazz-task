@@ -6,11 +6,15 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const port = 3000;
 
+// const uri='mongodb+srv://deepankanrai2000:Deepankan@123@cluster0.hlfs9lo.mongodb.net/bazz?retryWrites=true&w=majority';
 app.use(bodyParser.json());
+const uri='mongodb+srv://deepankanrai2000:Deepankan123@cluster0.hlfs9lo.mongodb.net/?retryWrites=true&w=majority'
 
-mongoose.connect('mongodb://localhost/baaz', {useNewUrlParser: true});
-const db = mongoose.connection;
-db.on('open',function(){})
+mongoose.connect(uri, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+});
+console.log("Connected to MongoDB");
 
 const registerRoute = require('./routes/registerUser');
 const loginRoute = require('./routes/userLogin');

@@ -21,7 +21,7 @@ const verifyToken = (req, res, next) => {
   });
 };
 
-router.get('/user', verifyToken, async (req, res) => {
+router.get('/', verifyToken, async (req, res) => {
   try {
     const user = await User.findOne({ username: req.user.username });
     if (!user) {

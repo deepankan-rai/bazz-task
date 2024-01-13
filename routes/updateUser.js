@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const User = require('../models/User');  
+const User = require('../models/User');   
 const secretKey = 'deepankan@123';
 
 
@@ -22,7 +22,7 @@ const verifyToken = (req, res, next) => {
   });
 };
 
-router.put('/user', verifyToken, async (req, res) => {
+router.put('/', verifyToken, async (req, res) => {
   const { name, email } = req.body;
 
   try {
